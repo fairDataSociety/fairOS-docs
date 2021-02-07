@@ -1,4 +1,4 @@
-# Bee Documentation Website
+# FairOS Documentation Website
 
 Documentation for the [FairOS](https://github.com/fairDataSociety/fairOS-dfs). View at [https://fairos.io](https://fairos.io).
 
