@@ -13,5 +13,5 @@ title: Introduction
 - Open Pod
 - File List
 
+[![](https://j.gifs.com/2xjLMJ.gif)](https://bee.fairos.io/files/7acc9476b5f4120d82c5e13213eed4ae05d384e1ffc4b40158563c5471d88b7e)
 
-[![](https://j.gifs.com/lx3x0l.gif)](https://bee.fairos.io/files/19c1bd8c5714db4f798e07421dc7a20497537e1d1d8ad4f95cfcac8775effd05)

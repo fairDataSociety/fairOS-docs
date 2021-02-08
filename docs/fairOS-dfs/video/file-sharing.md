@@ -3,5 +3,24 @@ id: file-sharing
 title: File Sharing
 ---
 
+#### Bee1 - FairOS-dfs1
 
-[![](https://j.gifs.com/vl3l5g.gif)](https://bee.fairos.io/files/43a9a08b4ffa7aea1f1d0f0ba0e0a239e6e14bed5b5f4145821a81489d43443e)
+1) User Login (User1)
+
+2) Pod Open (pod1)
+
+3) Upload file (curl_commands.txt)
+
+4) Share file (share curl_commands.txt)
+
+#### Bee2 - FairOS-dfs2
+
+5) User Login (user2) 
+
+6) Pod Open (pod2)
+
+7) Receive Info (receiveinfo share reference)
+
+8) Receive (receive share reference) 
+
+[![](https://j.gifs.com/91qVWP.gif)](https://bee.fairos.io/files/00ae0cc521459a24cdfe9e2249243774b6b0bd0b30f4f48da97cf48fb1e6e455)

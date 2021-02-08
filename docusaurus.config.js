@@ -1,9 +1,9 @@
 module.exports = {
   title: 'FairOS',
   tagline: 'Welcome to the FairOS',
-  url: 'https://docs.fairos.io',
+  url: 'https://fairos.io',
   // note! we use SED to change this during automated builds, see ./.github/workflows/gh-pages.yml
-  baseUrl: '/',
+  baseUrl: '/bzz/fairos.eth/',
   plugins: [require.resolve('docusaurus-lunr-search')],
   onBrokenLinks: 'warn',
   favicon: 'img/favicon.ico',
