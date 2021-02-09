@@ -6,16 +6,10 @@ info:
 
 externalDocs:
   description: Browse the documentation @ the FairOS-dfs Docs
-  url: 'https://docs.fairos.io'
+  url: 'https://fairos.io'
 
 paths: {}
 components:
-  securitySchemes:
-    cookieAuth:
-      type: apiKey
-      in: cookie
-      name: FairOS-dfs  # cookie name
-
   schemas:
     UserSignupResponse:
       type: object
