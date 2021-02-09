@@ -52,6 +52,14 @@ module.exports = {
         'community/community'
       ],
       collapsed: true,
+    },
+    {
+      type: 'category',
+      label: 'Disclaimer',
+      items: [
+        'disclaimer/disclaimer'
+      ],
+      collapsed: true,
     }
   ]
 };
