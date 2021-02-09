@@ -2,20 +2,19 @@
 id: disclaimer
 title: Disclaimer
 ---
-#### FairOS License
+### FairOS License
 
-FairOS is undergoing heavy development and is currently provided for evaluation and development purposes only! 
-File integrity, persistence and security are not assured!
+**FairOS is undergoing heavy development and is currently provided for evaluation and development purposes only! 
+File integrity, persistence and security are not assured!**
 
-FairOS is release under friendly Apache 2.0 license. 
-Read the full license [here](https://github.com/fairDataSociety/fairOS-dfs/blob/master/LICENSE)
+FairOS is release under friendly [Apache 2.0 license](https://github.com/fairDataSociety/fairOS-dfs/blob/master/LICENSE)
 
-#### FairOS Documentation License
+### FairOS Documentation License
 
-This documentation is provided under the Creative Commons License 
+This documentation is provided under the [Creative Commons License](https://github.com/fairDataSociety/fairOS-docs/blob/master/License-docs)
 
 
-#### Logo and Logo Font License
+### Logo and Logo Font License
 
 Here are the people that made our beautiful logo happen :)
 
@@ -34,6 +33,6 @@ Here are the people that made our beautiful logo happen :)
 The logo was designed using the "Free Logo Maker" software provided by [Namecheap.com](https://www.namecheap.com/logo-maker/)
 The designing software is 100% free and abide by the license of the Font and Icon designers specified above.
 
-#### Documentation site
+### Documentation site
 
 This site is designed using docusaurus which is [MIT licensed](https://github.com/facebook/docusaurus/blob/master/LICENSE).
