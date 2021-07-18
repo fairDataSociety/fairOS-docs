@@ -81,7 +81,7 @@ module.exports = {
     announcementBar: {
       id: 'fairos_announcements',
       content:
-        '⭐️ FairOS-dfs Beta version 0.2.0 released. Checkout releases page in our github ⭐️',
+        '⭐️ FairOS-dfs version 0.6.2 is released. This release has breaking changes and will work only with bee v0.6.2 or more ⭐️',
       backgroundColor: '#00994d', // Defaults to `#fff`.
       textColor: '#ffffff', // Defaults to `#000`.
     },
