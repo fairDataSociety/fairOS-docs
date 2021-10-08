@@ -15,4 +15,4 @@ title: Doc DB - Data Demo
 - Get Document (by id)
 - Find document (by expression)
 
-[![](https://j.gifs.com/MwRyrQ.gif)](https://bee.fairos.io/files/d7664b20a1942d0ee26252356a15f104ece66afbdb1ab05ac4235df4c1bafa99)
+[![](https://j.gifs.com/MwRyrQ.gif)](https://gateway.ethswarm.org/access/31528e7a498cb14da8c94feed7afbd904b46dd5fa020a49e1622ba5c9b5b556e)

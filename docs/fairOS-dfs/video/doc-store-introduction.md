@@ -16,4 +16,4 @@ title: Doc DB - Introduction
 - Find Entry (greater than a certain age)
 
 
-[![](https://j.gifs.com/D1GmvB.gif)](https://bee.fairos.io/files/1264f505ca37cedfa6dd32ec9b65ff9226a4c1814d34bea81d652d8476228d2e)
+[![](https://j.gifs.com/D1GmvB.gif)](https://gateway.ethswarm.org/access/71ad82837eaadc2d059f6ce07d2259b39ae5bd6a8927c33aba7001f263403112)

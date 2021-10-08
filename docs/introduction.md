@@ -5,11 +5,11 @@ slug: /
 ---
 
 :::info
-FairOS-dfs release 0.5.0  will only work on bee version 0.5.0 or more. 
+FairOS-dfs release 0.6.2 will only work on bee version 0.6.2 or more. 
 
-If you are using bee version less than 0.5.0, please resort to FairOS-dfs version less than 0.5.0. 
+If you are using bee version less than 0.6.2, please resort to FairOS-dfs version less than 0.6.2. 
 
-This is because of a breaking change in bee APIs in version 0.5.0 plus.  
+This is because of a breaking change in bee APIs in version 0.6.2 plus.  
 :::
 
 Hello and welcome to the [FairOS](/docs/fairOS/introduction), The missing Operating System(OS) for a Fair Data Society. FairOS is a project being done under the banner of [Fair Data Society](https://fairdatasociety.org/)(FDS) and is currently incubated by [Swarm](https://swarm.ethereum.org/).
@@ -48,9 +48,9 @@ We'd love you to join us! Are you up to the challenge of helping us to create Fa
 ### Community
 There is a budding community behind FairOS, get involved in our Telegram channel.
 
-- [API Gateway](http://api.fairos.io).
+- [API Gateway](https://fairos.fairdatasociety.org/).
 - [Telegram](https://t.me/joinchat/GCEfnpZbpfZgVyoK).
-- [Fairdrive](http://app.fairdrive.io).
+- [Fairdrive](https://app.fairdrive.fairdatasociety.org/).
 
 ### Reporting a bug
 If your FairOS-dfs isn't working, [get in touch and let us know!](https://github.com/fairDataSociety/fairOS-dfs/issues) 

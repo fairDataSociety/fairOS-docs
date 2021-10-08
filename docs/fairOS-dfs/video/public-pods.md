@@ -24,4 +24,4 @@ title: Public Pods
 
 9) Pod Login (pod1)
 
-[![](https://j.gifs.com/r8Pz1w.gif)](https://bee.fairos.io/files/285b9cfdf226c2d758e705e6bb9ff8ac03b9f8e40c66e40f997c38c2f67d77f3)
+[![](https://j.gifs.com/r8Pz1w.gif)](https://gateway.ethswarm.org/access/97963535af84b4d90866b6ac75e740c958c818ccf3a7187c54d914b2000cbbc1)

@@ -1,6 +1,6 @@
 # FairOS Documentation Website
 
-Documentation for the [FairOS](https://github.com/fairDataSociety/fairOS-dfs). View at [https://fairos.io](https://fairos.io).
+Documentation for the [FairOS](https://github.com/fairDataSociety/fairOS-dfs). View at [https://docs.fairos.fairdatasociety.org/docs/](https://docs.fairos.fairdatasociety.org/docs/).
 
 ### Node Version
 

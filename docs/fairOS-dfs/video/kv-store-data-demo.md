@@ -20,5 +20,5 @@ title: KV DB - Data Demo
 - Get Block data (kv get blocks blocknumber)
 - Check that block data with etherscan 
 
-[![](https://j.gifs.com/jZDwkl.gif)](https://bee.fairos.io/files/e44f2914a19a789a7a0fff4fc37e3243dadbda5e4e8e1c9a860ef1edf8d4474e)
+[![](https://j.gifs.com/jZDwkl.gif)](https://gateway.ethswarm.org/access/2688969c020cb736afae9b2f6d65c834414f83f8b4fdced077eb3e5f9a7266af)
 

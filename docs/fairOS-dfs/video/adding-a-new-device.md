@@ -25,4 +25,4 @@ title: Adding New Device
 
 9) List files 
 
-[![](https://j.gifs.com/lxJq1l.gif)](https://bee.fairos.io/files/335ecf86be9249d3f7bcc4c26d37e9e9cc06c3db7cda420bc0913b948a7cd193)
+[![](https://j.gifs.com/lxJq1l.gif)](https://gateway.ethswarm.org/access/a8d12b7e9cbbee0c974c02c8625020bc3b5651bc105f70d914c07d875f06818f)

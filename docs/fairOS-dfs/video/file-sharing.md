@@ -23,4 +23,4 @@ title: File Sharing
 
 8) Receive (receive share reference) 
 
-[![](https://j.gifs.com/91qVWP.gif)](https://bee.fairos.io/files/00ae0cc521459a24cdfe9e2249243774b6b0bd0b30f4f48da97cf48fb1e6e455)
+[![](https://j.gifs.com/91qVWP.gif)](https://gateway.ethswarm.org/access/830d0e90d8c96f1e03b10fb6558996a69b1ad9a072d4a946c527695a9f42e987)

@@ -20,13 +20,13 @@ The default configuration of FairOS-dfs assumes that Swarm is running in the sam
 ### Linux
 
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.5.0/dfs-linux-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.6.2/dfs-linux-amd64
 ./dfs-linux-amd64 server
 ```
 
 In another terminal, run the dfs-cli to connect and test it
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.5.0/dfs-cli-linux-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.6.2/dfs-cli-linux-amd64
 ./dist/dfs-cli-linux-amd64
 ```
 
@@ -34,13 +34,13 @@ wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.5.0/dfs-
 ### MacOS
 
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.5.0/dfs-darwin-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.6.2/dfs-darwin-amd64
 ./dist/dfs-darwin-amd64 server
 ```
 
 In another terminal, run the dfs-cli to connect and test it
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.5.0/dfs-cli-darwin-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.6.2/dfs-cli-darwin-amd64
 ./dist/dfs-cli-darwin-amd64
 ```
 

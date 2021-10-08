@@ -29,4 +29,4 @@ title: KV DB - Introduction
 10) Get entry (entry 3)
 
 
-[![](https://j.gifs.com/6XZwvl.gif)](https://bee.fairos.io/files/94a5d957a90b52be9eab73d61c7c3f5a68848d42c5266c25d7b056bb3871d9ce)
+[![](https://j.gifs.com/6XZwvl.gif)](https://gateway.ethswarm.org/access/130dcf7d01442836bc14c8c38db32ebfc4d5771c28677438b6a2a2a078bd1414)
