@@ -3,7 +3,7 @@ id: introduction
 title: Introduction
 ---
 
-The most important resources in a computer are the storage(disk) and compute(processor). Applications that run on a single computer use either or both of these resources. Operating System(OS) are programs which manage these resources and also schedules their usage across multiple applications.   
+The most important resources in a computer are the storage (disk) and compute (processor). Applications that run on a single computer use either or both of these resources. Operating System(OS) are programs which manage these resources and also schedules their usage across multiple applications.   
 
 ### Big Data Frameworks
 
