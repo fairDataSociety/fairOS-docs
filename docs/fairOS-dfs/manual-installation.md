@@ -16,7 +16,7 @@ Since FairOS-dfs is written in golang, it is necessary to have a running go vers
 git clone https://github.com/fairDataSociety/fairOS-dfs.git
 cd fairOS-dfs
 make binary
-./dist/dfs server #(starts FairOS-dfs in server mode)
+./dist/dfs server --postageBlockId "RECEIVED_BATCH_ID" #(starts FairOS-dfs in server mode)
 ./dist/dfs-cli #(starts the FairOS-dfs client)
 ```
 
@@ -26,7 +26,7 @@ make binary
 git clone https://github.com/fairDataSociety/fairOS-dfs.git
 cd fairOS-dfs
 make binary
-./dist/dfs server #(starts FairOS-dfs in server mode)
+./dist/dfs server --postageBlockId "RECEIVED_BATCH_ID" #(starts FairOS-dfs in server mode)
 ./dist/dfs-cli #(starts the FairOS-dfs client)
 ```
 
