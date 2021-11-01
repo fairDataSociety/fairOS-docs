@@ -12,7 +12,7 @@ If you are using bee version less than 0.6.2, please resort to FairOS-dfs versio
 This is because of a breaking change in bee APIs in version 0.6.2 plus.  
 :::
 
-Hello and welcome to the [FairOS](/docs/fairOS/introduction), The missing Operating System (OS) for a Fair Data Society. FairOS is a project being done under the banner of [Fair Data Society](https://fairdatasociety.org/) (FDS) and is currently incubated by [Ethereum](https://ethereum.org/).
+Hello and welcome to the [FairOS](/docs/fairOS/introduction), The missing Operating System (OS) for a Fair Data Society. FairOS is a project being done under the banner of [Fair Data Society](https://fairdatasociety.org/) (FDS).
 
 ###  What is FairOS
 Think of Internet as a big computer, FairOS is poised to be the De-centalised OS that manages the resources of the computers in its network, like storage and compute. The nodes that run FairOS will be part of the global network that will run applications which can make use of the storage and compute that is available. It consists of two layers, namely FairOS-dfs(storage) and FairOS-compute(compute).
