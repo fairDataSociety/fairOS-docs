@@ -12,7 +12,7 @@ Learn detailed info about Stamps in official [Swarm docs](https://docs.ethswarm.
 1000000000000000 is 0.1 BZZ
 
 ```sh
-`curl -XPOST "http://localhost:1635/chequebook/withdraw?amount=1000000000000000"`
+curl -XPOST "http://localhost:1635/chequebook/withdraw?amount=1000000000000000"
 ```
 
 ### Purchase a Batch of Stamps
