@@ -58,7 +58,7 @@ Fund it with gBzz ang gEth. Wait until chequebook deployed and node started, the
 
 #### Obtaining stamps and define them in config file
 
-Withdraw 0.1 gBzz from chequbook
+Withdraw 0.1 gBzz from chequebook
 
 `curl -XPOST "http://localhost:1635/chequebook/withdraw?amount=1000000000000000"`
 
@@ -70,7 +70,7 @@ Download docker-compose.yml for running Bee+FairOS
 
 `cd fairstack`
 
-`wget https://github.com/fairDataSociety/fairOS-dfs/raw/master/docker/testnet-old/docker-compose.yml`
+`wget https://github.com/fairDataSociety/fairOS-dfs/raw/master/docker/testnet-new/docker-compose.yml`
 
 
 Run

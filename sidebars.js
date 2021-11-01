@@ -18,6 +18,7 @@ module.exports = {
         'fairOS-dfs/quickstart',
         'fairOS-dfs/manual-installation',
         'fairOS-dfs/docker-installation',
+        'fairOS-dfs/postage-batch-id',
         'fairOS-dfs/api-reference',
         'fairOS-dfs/cli-reference',
         'fairOS-dfs/developer-info',
