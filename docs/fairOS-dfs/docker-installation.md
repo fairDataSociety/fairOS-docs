@@ -95,7 +95,9 @@ docker logs fairstack_bee-1_1 -f
 
 or if logs too much
 
-`docker logs -f --tail 100 [container_id]`
+`docker logs -f --tail 100 fairstack_fairos_1`
+
+`docker logs -f --tail 100 fairstack_bee-1_1`
 
 ### Configuring public server
 
