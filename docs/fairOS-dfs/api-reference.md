@@ -35,7 +35,7 @@ FairOS-dfs exposes its functionality using REST APIs. There are five groups of A
 - curl 'http://localhost:9090/v1/pod/close' -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
 - curl 'http://localhost:9090/v1/pod/delete' -X DELETE -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
 - curl 'http://localhost:9090/v1/pod/ls' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-- curl 'http://localhost:9090/v1/pod/stat?pod_name=<pod_name>' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
+- curl 'http://localhost:9090/v1/pod/stat?pod_name=<pod_name\>' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
 
 ### File System Related APIs
 #### Directory APIs
