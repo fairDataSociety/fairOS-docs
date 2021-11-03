@@ -29,13 +29,13 @@ FairOS-dfs exposes its functionality using REST APIs. There are five groups of A
 - curl 'http://localhost:9090/v1/user/stat' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
 
 ### Pod Related APIs
-- POST -F 'password=\<password\>' -F 'pod=\<podname\>'  http://localhost:9090/v1/pod/new
-- POST -F 'password=\<password\>' -F 'pod=\<podname\>'  http://localhost:9090/v1/pod/open
-- POST http://localhost:9090/v1/pod/sync
-- POST http://localhost:9090/v1/pod/close
-- DELETE http://localhost:9090/v1/pod/delete
-- GET http://localhost:9090/v1/pod/ls
-- GET -F 'user=\<username\>' -F 'pod=\<podname\>'  http://localhost:9090/v1/pod/stat
+- curl 'http://localhost:9090/v1/pod/new' -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>","password":"<password\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
+- curl 'http://localhost:9090/v1/pod/open' -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>","password":"<password\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
+- curl 'http://localhost:9090/v1/pod/sync' -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
+- curl 'http://localhost:9090/v1/pod/close' -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
+- curl 'http://localhost:9090/v1/pod/delete' -X DELETE -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
+- curl 'http://localhost:9090/v1/pod/ls' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
+- curl 'http://localhost:9090/v1/pod/stat?pod_name=<pod_name>' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
 
 ### File System Related APIs
 #### Directory APIs
