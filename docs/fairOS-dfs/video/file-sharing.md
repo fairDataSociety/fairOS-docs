@@ -3,7 +3,7 @@ id: file-sharing
 title: File Sharing
 ---
 
-Example shows file sharing between two nodes, each using a different underlying Bee node. 
+Example shows file sharing between two nodes, each using a different underlying Bee node.
 
 #### Bee1 - FairOS-dfs1
 
@@ -25,4 +25,4 @@ Example shows file sharing between two nodes, each using a different underlying 
 
 8) Receive (receive share reference)
 
-[![](https://j.gifs.com/91qVWP.gif)](https://gateway.ethswarm.org/access/830d0e90d8c96f1e03b10fb6558996a69b1ad9a072d4a946c527695a9f42e987)
+[![](https://j.gifs.com/91qVWP.gif)](https://gateway.ethswarm.org/access/2a1e913249d5612834c72834524240726a2ca18d6a0cfa896038eefd3be390ec)
