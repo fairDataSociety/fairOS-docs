@@ -3,21 +3,8 @@ id: postage-batch-id
 title: Postage Batch ID
 ---
 
-Batch of Postage Stamps - is ID of chequebook in Swarm which used for payments for data uploading/downloading.
+Postage stamps are a concept used in Swarm network to pre-pay for storage of content by peers. After purchasing a batch of postage stamps through the Swarm Bee node interface, a reference to it is returned. By using this reference, uploads to Swarm network are possible, until the batch is depleted.
 
-Learn detailed info about Stamps in official [Swarm docs](https://docs.ethswarm.org/docs/access-the-swarm/keep-your-data-alive).
+Remember to start a FairOS-dfs server with a parameter referring to the reference of a postage stamp.
 
-### Fund your node's wallet
-
-1000000000000000 is 0.1 BZZ
-
-```sh
-curl -XPOST "http://localhost:1635/chequebook/withdraw?amount=1000000000000000"
-```
-
-### Purchase a Batch of Stamps
-
-
-```sh
-curl -s -XPOST http://localhost:1635/stamps/10000000/20
-```
+More detailed information about postage stamps is available in [Swarm documentation](https://docs.ethswarm.org/docs/access-the-swarm/keep-your-data-alive).
