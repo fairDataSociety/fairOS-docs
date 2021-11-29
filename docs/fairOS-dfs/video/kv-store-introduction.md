@@ -3,6 +3,8 @@ id: kv-store-introduction
 title: KV DB - Introduction
 ---
 
+Example shows creating a key value (KV) store and accessing it on another node.
+
 #### Bee1 - FairOS-dfs1
 
 1) User Login (user1)
