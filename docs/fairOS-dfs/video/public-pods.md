@@ -3,6 +3,8 @@ id: public-pods
 title: Public Pods
 ---
 
+Example shows creating a public pod and receiving that pod by another user.
+
 #### Bee1 - FairOS-dfs1
 
 1) User Login (User1)
