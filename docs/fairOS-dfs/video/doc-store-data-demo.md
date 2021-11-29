@@ -3,6 +3,8 @@ id: doc-store-data-demo
 title: Doc DB - Data Demo
 ---
 
+Example shows uploading geo data to document store and querying it.
+
 #### Open Street Map (Small)
 
 - User Login (user1)
