@@ -26,4 +26,4 @@ Example shows a user being added/imported to a new device/node.
 
 9) List files
 
-[![](https://j.gifs.com/lxJq1l.gif)](https://gateway.ethswarm.org/access/a8d12b7e9cbbee0c974c02c8625020bc3b5651bc105f70d914c07d875f06818f)
+[![](https://j.gifs.com/lxJq1l.gif)](https://gateway.ethswarm.org/access/3f44265f5f2cb57f180ae203cb6cbb8bb2fd5fb1416d6e24f4f6b9370e9b98c1)
