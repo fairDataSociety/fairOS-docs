@@ -17,7 +17,7 @@ Swarm is a pre-requisite for running FairOS-dfs. It is also recommended to run S
 
 The default configuration of FairOS-dfs assumes that Swarm is running in the same machine and exposes port 1633.
 
-The following commands download and run the binary versions of dfs server and dfs CLI. You have to insert your own [postage batch ID](postage-batch-id).
+The following example commands download and run the binary versions of FairOS-dfs server and FairOS-dfs CLI. You have to insert your own [postage batch ID](postage-batch-id).
 
 ### Linux
 
