@@ -3,6 +3,8 @@ id: doc-store-introduction
 title: Doc DB - Introduction
 ---
 
+Example shows creating a document store, adding and getting entries from it.
+
 #### Contact Database
 
 - User Login (user1)
