@@ -1,11 +1,12 @@
 ---
 id: docker-installation
 title: Docker Installation
+draft: true
 ---
 
 FairOS-dfs can be installed by Docker.
 
-Recommended OS: Ubuntu 18.04.1 LTS or higher. 
+Recommended OS: Ubuntu 18.04.1 LTS or higher.
 
 ### Install Docker
 
@@ -18,7 +19,7 @@ sudo apt-get install -y python3 python3-pip
 sudo pip3 install docker-compose
 ```
 
-If receive an error: ModuleNotFoundError: No module named 'setuptools_rust', run 
+If receive an error: ModuleNotFoundError: No module named 'setuptools_rust', run
 
 `pip3 install setuptools-rust` and try again.
 
