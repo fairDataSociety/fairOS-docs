@@ -15,4 +15,4 @@ Introductory example shows how to
 - Open Pod
 - File List
 
-[![](https://j.gifs.com/2xjLMJ.gif)](https://gateway.ethswarm.org/access/b03e17a77450ccf1dd6f050e2d619336772e2da9401684a064a6bb5ca383a061)
+[![](https://j.gifs.com/2xjLMJ.gif)](https://gateway.ethswarm.org/access/99136a11f1ec9dda92e608bf11632a341a6baa23868c65bf3e1fd7ec323bb046)
