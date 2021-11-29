@@ -3,6 +3,7 @@ id: adding-a-new-device
 title: Adding New Device
 ---
 
+Example shows a user being added/imported to a new device/node.
 
 #### Bee1 - FairOS-dfs1
 
@@ -23,6 +24,6 @@ title: Adding New Device
 
 8) Pod Open (pod1)
 
-9) List files 
+9) List files
 
 [![](https://j.gifs.com/lxJq1l.gif)](https://gateway.ethswarm.org/access/a8d12b7e9cbbee0c974c02c8625020bc3b5651bc105f70d914c07d875f06818f)
