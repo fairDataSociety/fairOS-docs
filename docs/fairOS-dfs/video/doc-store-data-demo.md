@@ -3,6 +3,8 @@ id: doc-store-data-demo
 title: Doc DB - Data Demo
 ---
 
+Example shows uploading geo data to document store and querying it.
+
 #### Open Street Map (Small)
 
 - User Login (user1)
@@ -15,4 +17,4 @@ title: Doc DB - Data Demo
 - Get Document (by id)
 - Find document (by expression)
 
-[![](https://j.gifs.com/MwRyrQ.gif)](https://gateway.ethswarm.org/access/31528e7a498cb14da8c94feed7afbd904b46dd5fa020a49e1622ba5c9b5b556e)
+[![](https://j.gifs.com/MwRyrQ.gif)](https://gateway.ethswarm.org/access/62c7fbfb9c0b65385d2c3fbd3c9a0466b59116b7d05a8d3c75a2b72b7f7fcca7)

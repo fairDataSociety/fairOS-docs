@@ -3,6 +3,8 @@ id: public-pods
 title: Public Pods
 ---
 
+Example shows creating a public pod and receiving that pod by another user.
+
 #### Bee1 - FairOS-dfs1
 
 1) User Login (User1)
@@ -24,4 +26,4 @@ title: Public Pods
 
 9) Pod Login (pod1)
 
-[![](https://j.gifs.com/r8Pz1w.gif)](https://gateway.ethswarm.org/access/97963535af84b4d90866b6ac75e740c958c818ccf3a7187c54d914b2000cbbc1)
+[![](https://j.gifs.com/r8Pz1w.gif)](https://gateway.ethswarm.org/access/f787d31e24393760667440c8f03e3f02e0bd4fa03012e8fa63eb80f04ad26aab)

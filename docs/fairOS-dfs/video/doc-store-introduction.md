@@ -3,6 +3,8 @@ id: doc-store-introduction
 title: Doc DB - Introduction
 ---
 
+Example shows creating a document store, adding and getting entries from it.
+
 #### Contact Database
 
 - User Login (user1)
@@ -16,4 +18,4 @@ title: Doc DB - Introduction
 - Find Entry (greater than a certain age)
 
 
-[![](https://j.gifs.com/D1GmvB.gif)](https://gateway.ethswarm.org/access/71ad82837eaadc2d059f6ce07d2259b39ae5bd6a8927c33aba7001f263403112)
+[![](https://j.gifs.com/D1GmvB.gif)](https://gateway.ethswarm.org/access/8bd0ea9d78339446f15b07263056f9e861278f45de6fb86f4369ca1dd924b8f7)
