@@ -47,7 +47,7 @@ Run node bee node for setup
   -p 1635:1635 \
   -p 1634:1634 \
   -p 1633:1633 \
-  --rm -it ethersphere/bee:0.6.2 \
+  --rm -it ethersphere/bee:0.7.3 \
   start \
     --password=YOUR_PASSWORD \
     --cache-capacity 20000000 \

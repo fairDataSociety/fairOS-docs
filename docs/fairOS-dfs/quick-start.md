@@ -22,14 +22,14 @@ The following example commands download and run the binary versions of FairOS-df
 ### Linux
 
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.6.2/dfs-linux-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.7.3/dfs-linux-amd64
 chmod +x dfs-linux-amd64
 ./dfs-linux-amd64 server --postageBlockId "RECEIVED_BATCH_ID"
 ```
 
 In another terminal, run the dfs-cli to connect and test it
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.6.2/dfs-cli-linux-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.7.3/dfs-cli-linux-amd64
 chmod +x dfs-cli-linux-amd64
 ./dist/dfs-cli-linux-amd64 --postageBlockId "RECEIVED_BATCH_ID"
 ```
@@ -38,14 +38,14 @@ chmod +x dfs-cli-linux-amd64
 ### MacOS
 
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.6.2/dfs-darwin-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.7.3/dfs-darwin-amd64
 chmod +x dfs-darwin-amd64
 ./dist/dfs-darwin-amd64 server --postageBlockId "RECEIVED_BATCH_ID"
 ```
 
 In another terminal, run the dfs-cli to connect and test it
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.6.2/dfs-cli-darwin-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.7.3/dfs-cli-darwin-amd64
 chmod +x dfs-cli-darwin-amd64
 ./dist/dfs-cli-darwin-amd64 --postageBlockId "RECEIVED_BATCH_ID"
 ```

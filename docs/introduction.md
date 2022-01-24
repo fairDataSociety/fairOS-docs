@@ -5,11 +5,11 @@ slug: /
 ---
 
 :::info
-FairOS-dfs release 0.6.2 will only work on bee version 0.6.2 or more.
+FairOS-dfs release v0.7.3 will only work on bee version 1.4.1 or more.
 
-If you are using bee version less than 0.6.2, please resort to FairOS-dfs version less than 0.6.2.
+If you are using bee version less than 1.4.1, please resort to FairOS-dfs version less than 0.7.0.
 
-This is because of a breaking change in bee APIs in version 0.6.2 plus.  
+This is because of a breaking change in bee APIs in version 1.4.1 plus.  
 :::
 
 Hello and welcome to the [FairOS](/docs/fairOS/introduction), The missing Operating System (OS) for a Fair Data Society. FairOS is a project being done under the banner of [Fair Data Society](https://fairdatasociety.org/) (FDS).
