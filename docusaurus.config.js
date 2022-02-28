@@ -27,7 +27,7 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs/fairos-dfs/video/introduction',
+          to: 'docs/fairos-dfs/video/architecture',
           activeBasePath: 'docs',
           label: 'Screencast',
           position: 'left',

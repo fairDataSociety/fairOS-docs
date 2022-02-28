@@ -3,26 +3,4 @@ id: file-sharing
 title: File Sharing
 ---
 
-Example shows file sharing between two nodes, each using a different underlying Bee node.
-
-#### Bee1 - FairOS-dfs1
-
-1) User Login (User1)
-
-2) Pod Open (pod1)
-
-3) Upload file (curl_commands.txt)
-
-4) Share file (share curl_commands.txt)
-
-#### Bee2 - FairOS-dfs2
-
-5) User Login (user2)
-
-6) Pod Open (pod2)
-
-7) Receive Info (receiveinfo share reference)
-
-8) Receive (receive share reference)
-
-[![](https://j.gifs.com/91qVWP.gif)](https://gateway.ethswarm.org/access/2a1e913249d5612834c72834524240726a2ca18d6a0cfa896038eefd3be390ec)
+[![FairOS File Sharing](./thumbnails/fairOS-file-sharing.png)](https://drive.google.com/file/d/1kL1PkKjuLs_ViVl2iZ9C-B72rQzTv_5u/view "FairOS File Sharing")
