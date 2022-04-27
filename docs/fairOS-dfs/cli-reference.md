@@ -6,14 +6,18 @@ title: REPL client
 ### REPL Commands in dfs-cli
 **dfs-cli >>>** <command\> (argument) where, <command\> is listed below
 ##### user related commands
-- user <new\> (user-name) - create a new user and login as that user
-- user <del\> (user-name) - deletes a already created user
+- user <new\> (user-name) (mnemonic) - create a new user and login as that user
+- user <del\> - deletes a logged in user
+- user <delV1\> - deletes a logged in user
+- user <migrate\> - migrates a logged in user from v1 to v2
 - user <login\> (user-name) - login as a given user
-- user <logout\> (user-name) - logout as user
+- user <loginV1\> (user-name) - login as a given user
+- user <logout\> - logout a logged in user
+- user <present\> (user-name) - returns true if the user is present, false otherwise
+- user <presentV1\> (user-name) - returns true if the user is present, false otherwise
 - user <export\> - exports the given user
-- user <import\> (user-name) (address) - imports the user to another device
-- user <import\> (user-name) (12 word mnemonic) - imports the user if the device is lost"
 - user <stat\> - shows information about a user
+
 ##### pod related commands
 - pod <new\> (pod-name) - create a new pod and login to that pod
 - pod <del\> (pod-name) - deletes a already created pod
@@ -22,6 +26,7 @@ title: REPL client
 - pod <sync\> (pod-name) - sync the contents of a logged in pod from Swarm
 - pod <logout\>  - logout of a logged in pod
 - pod <ls\> - lists all the pods created for this account
+
 ##### directory & file related commands
 - cd <directory name\>
 - ls 
@@ -35,6 +40,7 @@ title: REPL client
 - share <file name\> -  shares a file with another user
 - receive <sharing reference\> \<pod dir\> - receives a file from another user
 - receiveinfo <sharing reference\> - shows the received file info before accepting the receive 
+
 ##### Key Value store commands
 - kv <new\> (table-name) - create new key value store
 - kv <delete\> (table-name) - delete the  key value store
@@ -46,6 +52,8 @@ title: REPL client
 - kv <loadcsv\> (table-name) (local csv file) - loads the csv file in to kv store
 - kv <seek\> (table-name) (start-key) (end-key) (limit) - seek to the given start prefix
 - kv <getnext\> (table-name) - get the next element
+- kv <count\> (table-name) - number of records in the store
+
 ##### Document store commands
 - doc <new\> (table-name) (si=indexes) - creates a new document store
 - doc <delete\> (table-name) - deletes a document store
@@ -57,7 +65,8 @@ title: REPL client
 - doc <get\> (table-name) (id) - get the document having the id from the store
 - doc <del\> (table-name) (id) - delete the document having the id from the store
 - doc <loadjson\> (table-name) (local json file) - load the json file in to the newly created document db  
-- doc <indexjson\> (table-name) (pod file) - load the json file in pod to the newly created document db  
+- doc <indexjson\> (table-name) (pod file) - load the json file in pod to the newly created document db 
+
 ##### management commands
 - help - display this help
 - exit - exits from the prompt
