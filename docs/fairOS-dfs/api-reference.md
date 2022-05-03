@@ -14,67 +14,74 @@ User Signup, User Login, Pod Open APIs will return a cookie named 'fairOS-dfs'. 
 FairOS-dfs exposes its functionality using REST APIs. There are five groups of APIs
 ### User Related APIs
 #### APIs that will work without user login
-- curl 'http://localhost:9090/v1/user/signup' -H 'Content-Type: application/json' -d '{"user_name":"<username\>","password":"<password\>","mnemonic":"<12 words from bip39 list>"}'
+- curl 'http://localhost:9090/v2/user/signup' -H 'Content-Type: application/json' -d '{"user_name":"<username\>","password":"<password\>","mnemonic":"<12 words from bip39 list>"}'
 - curl 'http://localhost:9090/v1/user/signup' -H 'Content-Type: application/json' -d '{"user_name":"<username\>","password":"<password\>"}'
-- curl 'http://localhost:9090/v1/user/login' -H 'Content-Type: application/json' -d '{"user_name":"<username\>","password":"<password\>"}'
-- curl 'http://localhost:9090/v1/user/import' -H 'Content-Type: application/json' -d '{"user_name":"<username\>","password":"<password\>","mnemonic":"<12 words from bip39 list>"}'
-- curl 'http://localhost:9090/v1/user/import' -H 'Content-Type: application/json' -d '{"user_name":"<username\>","password":"<password\>","address":"<address\>"}'
-- curl 'http://localhost:9090/v1/user/isloggedin?user_name=<username\>' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-
+- curl 'http://localhost:9090/v1/user/login' -H 'Content-Type: application/json' -d '{"user_name":"<username\>","password":"<password\>"}' -v
+- curl 'http://localhost:9090/v2/user/login' -H 'Content-Type: application/json' -d '{"user_name":"<username\>","password":"<password\>"}' -v
+- curl 'http://localhost:9090/v1/user/isloggedin?user_name=<username\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/user/?user_name=<username\>'
+- curl --request GET 'http://localhost:9090/v2/user/present?user_name=<username\>'
 
 #### User should be logged in for these APIs to work
-- curl 'http://localhost:9090/v1/user/logout' -X 'POST' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-- curl 'http://localhost:9090/v1/user/export' -X 'POST' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-- curl 'http://localhost:9090/v1/user/delete' -X 'DELETE' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>' -H 'Content-Type: application/json' -d '{"password":"<password\>"}'
-- curl 'http://localhost:9090/v1/user/stat' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
+- curl --request POST 'http://localhost:9090/v1/user/logout' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/user/export' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request DELETE 'http://localhost:9090/v1/user/delete' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: application/json' --data-raw '{"password": "<password\>"}'
+- curl --request DELETE 'http://localhost:9090/v2/user/delete' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: application/json' --data-raw '{"password": "<password\>"}'
+- curl --request GET 'http://localhost:9090/v1/user/stat' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v2/user/migrate' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: application/json' --data-raw '{"password": "<password\>"}'
 
 ### Pod Related APIs
-- curl 'http://localhost:9090/v1/pod/new' -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>","password":"<password\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-- curl 'http://localhost:9090/v1/pod/open' -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>","password":"<password\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-- curl 'http://localhost:9090/v1/pod/sync' -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-- curl 'http://localhost:9090/v1/pod/close' -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-- curl 'http://localhost:9090/v1/pod/delete' -X DELETE -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>"}' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-- curl 'http://localhost:9090/v1/pod/ls' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
-- curl 'http://localhost:9090/v1/pod/stat?pod_name=<pod_name\>' -H 'Cookie: fairOS-dfs=<DFS cookie from user/login method>'
+- curl --request POST 'http://localhost:9090/v1/pod/new' -H 'Content-Type: application/json' -d '{"pod_name":"<pod_name\>","password":"<password\>"}' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/pod/open' -H 'Content-Type: application/json' -d '{"pod_name":"<pod_name\>","password":"<password\>"}' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/pod/sync' -H 'Content-Type: application/json' -d '{"pod_name":"<pod_name\>"}' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/pod/close' -H 'Content-Type: application/json' -d '{"pod_name":"<pod_name\>"}' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/pod/share' -H 'Content-Type: application/json' -d '{"pod_name":"<pod_name\>","password":"<password\>"}' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request DELETE 'http://localhost:9090/v1/pod/delete' -X DELETE -H 'Content-Type: application/json' -d '{"pod_name":"<pod name\>","password":"<password\>"}' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/pod/ls' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/pod/stat?pod_name=<pod_name\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/pod/present?pod_name=<pod_name\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/pod/receive?reference=<string\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/pod/receiveinfo?reference=<string\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
 
 ### File System Related APIs
 #### Directory APIs
-- POST -F 'dir=\<dir_with_path\>'  http://localhost:9090/v1/dir/mkdir
-- DELETE -F 'dir=\<dir_with_path\>'  http://localhost:9090/v1/dir/rmdir
-- GET -F 'dir=\<dir_with_path\>'  http://localhost:9090/v1/dir/ls
-- GET -F 'dir=\<dir_with_path\>'  http://localhost:9090/v1/dir/stat
+- curl --request POST 'http://localhost:9090/v1/dir/mkdir' --header 'Content-Type: application/json' --data-raw '{"dir_path": "<dir_with_path\>","pod_name": "<pod_name\>"}' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request DELETE 'http://localhost:9090/v1/dir/rmdir' --header 'Content-Type: application/json' --data-raw '{"dir_path": "<dir_with_path\>","pod_name": "<pod_name\>"}' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/dir/ls?pod_name=<pod_name\>&dir_path=<dir_with_path\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/dir/stat?pod_name=<pod_name\>&dir_path=<dir_with_path\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/dir/present?pod_name=<pod_name\>&dir_path=<dir_with_path\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
 
 #### File APIs
-- POST -F -H "fairOS-dfs-Compression: snappy/gzip" 'pod_dir=\<dir_with_path\>' -F 'block_size=\<in_Mb\>' -F 'files=@\<filename1\>' -F 'files=@\<filename2\>' http://localhost:9090/v1/file/upload  (compression header optional)
-- POST -F 'file=\<file_path\>'  http://localhost:9090/v1/file/download
-- POST -F 'file=\<file_path\>' -F 'to=\<destination_user_address\>' http://localhost:9090/v1/file/share
-- POST -F 'ref=\<sharing_reference\>' -F 'dir=\<pod_dir_to_store_file\>' http://localhost:9090/v1/file/share/receive
-- POST -F 'ref=\<sharing_reference\>' http://localhost:9090/v1/file/share/receiveinfo
-- GET  -F 'file=\<file_path\>'  http://localhost:9090/v1/file/stat
-- DELETE -F 'file=\<file_path\>'  http://localhost:9090/v1/file/delete
-
+- curl --request POST -H "fairOS-dfs-Compression: snappy/gzip" --form 'dir_path=<dir_with_path\>' --form 'pod_name=<pod_name\>' --form 'block_size=\<in_Mb\>' --form 'files=@\<filename1\>' http://localhost:9090/v1/file/upload --header 'Content-Type: multipart/form-data' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'(compression header optional)
+- curl --request POST --form 'file_path="<file_path\>"' --form 'pod_name="<pod_name\>"'  http://localhost:9090/v1/file/download -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: multipart/form-data'
+- curl --request POST 'http://localhost:9090/v1/file/share' http://localhost:9090/v1/file/share -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: application/json' --data-raw '{"pod_name": "<pod_name\>","pod_path_file": "<file_path\>","dest_user": "<destination_user_address\>"}'
+- curl --request GET 'http://localhost:9090/v1/file/stat?file_path=<file_path\>&pod_name=<pod_name\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request DELETE http://localhost:9090/v1/file/delete --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --data-raw '{"pod_name": "<pod_name\>","file_path": "<file_path\>"}'
+  curl --request GET 'http://localhost:9090/v1/file/receive?pod_name=<pod_name\>&sharing_ref=<string\>&dir_path=<file_path\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+  curl --request GET 'http://localhost:9090/v1/file/receiveinfo?pod_name=<pod_name\>&sharing_ref=<string\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+  
 ### Key Value DB Related APIs
-- POST -F 'file=\<kv table name\>' http://localhost:9090/v1/kv/new
-- POST -F 'file=\<kv table name\>' http://localhost:9090/v1/kv/open
-- POST -F 'file=\<kv table name\>' http://localhost:9090/v1/kv/count
-- POST http://localhost:9090/v1/kv/ls
-- DELETE -F 'file=\<kv table name\>' http://localhost:9090/v1/kv/delete
-- POST -F 'file=\<kv table name\>' -F 'key=\<key\>' -F 'value=\<bytes\>' http://localhost:9090/v1/kv/entry/put
-- GET -F 'file=\<kv table name\>' -F 'key=\<key\>' http://localhost:9090/v1/kv/entry/get
-- DELETE -F 'file=\<kv table name\>' -F 'key=\<key\>' http://localhost:9090/v1/kv/entry/del
-- POST -F 'file=\<kv table name\>' -F 'csv=@\<csv_file\>' http://localhost:9090/v1/kv/loadcsv
-- POST -F 'file=\<kv table name\>' -F 'start=\<start_prefix\>' -F 'end=\<end\>' -F 'limit=\<no of records\>' http://localhost:9090/v1/kv/seek
-- GET -F 'file=\<nkv table ame\>' http://localhost:9090/v1/kv/seek/getnext
+- curl --request POST http://localhost:9090/v1/kv/new --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>","indexType": "string"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST http://localhost:9090/v1/kv/open --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST http://localhost:9090/v1/kv/count --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET http://localhost:9090/v1/kv/ls?pod_name=<pod_name\> -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request DELETE http://localhost:9090/v1/kv/delete --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST http://localhost:9090/v1/kv/entry/put --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>","key": "<key\>","value": "string"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/kv/entry/get?pod_name=<pod_name\>&table_name=<table_name\>&key=<key\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request DELETE 'http://localhost:9090/v1/kv/entry/del' --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>","key": "<key\>","value": "string"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/kv/loadcsv' --form 'pod_name="<pod_name\>"' --form 'table_name="<table_name\>"' --form 'csv=@"<csv_file_location\>"' --header 'Content-Type: multipart/form-data' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/kv/seek' --data-raw '{"pod_name": "pod1005","table_name": "tea_table26","start_prefix": "key_1"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/kv/seek/next?pod_name=<pod_name\>&table_name=<table_name\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
 
 ### Document DB Related APIs
-- POST -F 'name=\<document table name\>' http://localhost:9090/v1/doc/new
-- POST -F 'name=\<document table name\>' http://localhost:9090/v1/doc/open
-- POST -F 'name=\<tdocument able name\>' -F 'expr=\<expression\>' http://localhost:9090/v1/doc/count
-- POST -F 'name=\<document table name\>' -F 'expr=\<expression\>' -F 'limit=\<no of records\>' http://localhost:9090/v1/doc/find
-- POST http://localhost:9090/v1/doc/ls
-- DELETE -F 'name=\<tdocument able name\>' http://localhost:9090/v1/doc/delete
-- POST -F 'name=\<tdocument able name\>' -F 'doc=\<json document in bytes\>' http://localhost:9090/v1/doc/entry/put
-- GET -F 'name=\<document table name\>' -F 'id=\<document id\>' http://localhost:9090/v1/doc/entry/get
-- DELETE -F 'name=\<document table name\>' -F 'id=\<document id\>' http://localhost:9090/v1/doc/entry/del
-- POST -F 'name=\<document table name\>' -F 'json=@\<json_file\>' http://localhost:9090/v1/doc/loadjson
-- POST -F 'name=\<document table name\>' -F 'file=\<pod file\>' http://localhost:9090/v1/doc/indexjson
+- curl --request POST 'http://localhost:9090/v1/doc/new' --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>","si": "first_name=string,age=number","mutable": true }' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/doc/open' --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/doc/count' --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>","expr": "<expression\>"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/doc/find?pod_name=<pod_name\>&table_name=<table_name\>&expr=<expression\>&limit=<number\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/doc/ls?pod_name=<pod_name\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request DELETE 'http://localhost:9090/v1/doc/delete' --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/doc/entry/put' -data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>","doc": "<string\>"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request GET 'http://localhost:9090/v1/doc/entry/get?pod_name=<pod_name\>&table_name=<table_name\>&id=<_id\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request DELETE 'http://localhost:9090/v1/doc/entry/del' --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>","id": "<_id\>"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/doc/loadjson' --form 'pod_name="<pod_name\>"' --form 'table_name="<table_name\>"' --form 'json=@"<json_file_location\>"' --header 'Content-Type: multipart/form-data' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+- curl --request POST 'http://localhost:9090/v1/doc/indexjson' --data-raw '{"pod_name": "<pod_name\>","table_name": "<table_name\>","file": "<json_path_in_pod\>"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
