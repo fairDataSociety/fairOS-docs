@@ -4,7 +4,7 @@ title: API Reference
 ---
 FairOS-dfs API documentation is given here 
 
-- <a href="../../api" target="_blank" rel="noopener noreferrer">FairOS-dfs OpenAPI reference.</a>
+- <a href="../../api/index.html" target="_blank" rel="noopener noreferrer">FairOS-dfs OpenAPI reference.</a>
 
 
 :::info
