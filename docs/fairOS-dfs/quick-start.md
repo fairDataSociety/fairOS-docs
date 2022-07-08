@@ -31,7 +31,7 @@ In another terminal, run the dfs-cli to connect and test it
 ```sh
 wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.8.0/dfs-cli-linux-amd64
 chmod +x dfs-cli-linux-amd64
-./dist/dfs-cli-linux-amd64 --postageBlockId "RECEIVED_BATCH_ID"
+./dist/dfs-cli-linux-amd64
 ```
 
 
@@ -47,5 +47,5 @@ In another terminal, run the dfs-cli to connect and test it
 ```sh
 wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.8.0/dfs-cli-darwin-amd64
 chmod +x dfs-cli-darwin-amd64
-./dist/dfs-cli-darwin-amd64 --postageBlockId "RECEIVED_BATCH_ID"
+./dist/dfs-cli-darwin-amd64
 ```
