@@ -1,7 +1,7 @@
 openapi: 3.0.0
 
 info:
-  version: 0.8.0
+  version: 0.8.2
   title: FairOS-dfs API
   description: 'A list of the currently provided Interfaces to interact with FairOS decentralised file system(dfs), implementing user, pod, file system, key value store and document store'
 
@@ -376,38 +376,38 @@ paths:
           $ref: '#/components/responses/500'
 
   '/v2/user/delete':
-      delete:
-        summary: 'Delete user (v2)'
-        description: 'Delete a logged-in user from the dfs server.'
-        tags:
-          - User
-        parameters:
-          - in: cookie
-            name: fairOS-dfs
+    delete:
+      summary: 'Delete user (v2)'
+      description: 'Delete a logged-in user from the dfs server.'
+      tags:
+        - User
+      parameters:
+        - in: cookie
+          name: fairOS-dfs
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
             schema:
-              type: string
-        requestBody:
+              type: object
+              properties:
+                password:
+                  $ref: '#/components/schemas/Password'
+              required:
+                - password
+      responses:
+        '200':
+          description: 'OK'
           content:
-            application/json:
+            application/octet-stream:
               schema:
-                type: object
-                properties:
-                  password:
-                    $ref: '#/components/schemas/Password'
-                required:
-                  - password
-        responses:
-          '200':
-            description: 'OK'
-            content:
-              application/octet-stream:
-                schema:
-                  type: string
-                  format: binary
-          '400':
-            $ref: '#/components/responses/400'
-          '500':
-            $ref: '#/components/responses/500'
+                type: string
+                format: binary
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
 
   '/v1/user/stat':
     get:
@@ -765,16 +765,15 @@ paths:
           name: fairOS-dfs
           schema:
             type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                pod_name:
-                  $ref: '#/components/schemas/PodName'
-              required:
-                - pod_name
+        - in: query
+          name: fields
+          schema:
+            type: object
+            properties:
+              pod_name:
+                $ref: '#/components/schemas/PodName'
+            required:
+              - pod_name
       responses:
         '200':
           description: 'Ok'
@@ -1066,19 +1065,18 @@ paths:
           name: fairOS-dfs
           schema:
             type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                pod_name:
-                  $ref: '#/components/schemas/PodName'
-                file_path:
-                  $ref: '#/components/schemas/DirPath'
-              required:
-                - pod_name
-                - file_path
+        - in: query
+          name: fields
+          schema:
+            type: object
+            properties:
+              pod_name:
+                $ref: '#/components/schemas/PodName'
+              file_path:
+                $ref: '#/components/schemas/DirPath'
+            required:
+              - pod_name
+              - file_path
       responses:
         '200':
           description: 'Ok'
@@ -1104,7 +1102,7 @@ paths:
             type: string
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
@@ -1199,10 +1197,10 @@ paths:
           content:
             application/json:
               schema:
-               type: object
-               properties:
-                file_name:
-                  $ref: '#/components/schemas/FileNameWithPath'
+                type: object
+                properties:
+                  file_name:
+                    $ref: '#/components/schemas/FileNameWithPath'
         '400':
           $ref: '#/components/responses/400'
         '500':
@@ -1245,7 +1243,7 @@ paths:
 
   '/v1/file/delete':
     delete:
-      summary: 'Delete info'
+      summary: 'Delete file'
       description: 'Delete a file in the pod'
       tags:
         - File System
@@ -1282,7 +1280,7 @@ paths:
 
   '/v1/file/stat':
     get:
-      summary: 'Stat info'
+      summary: 'Stat file info'
       description: 'Get the information about a file in the pod '
       tags:
         - File System
@@ -1688,11 +1686,11 @@ paths:
                 table_name:
                   $ref: '#/components/schemas/KVTableName'
                 start_prefix:
-                    $ref: '#/components/schemas/KVKey'
+                  $ref: '#/components/schemas/KVKey'
                 end_prefix:
-                    $ref: '#/components/schemas/KVKey'
+                  $ref: '#/components/schemas/KVKey'
                 limit:
-                    type: integer
+                  type: integer
               required:
                 - pod_name
                 - table_name
@@ -2208,7 +2206,7 @@ paths:
                 $ref: '#/components/schemas/DocId'
             required:
               - pod_name
-              - table_name    
+              - table_name
               - id
       responses:
         '200':
@@ -2216,8 +2214,8 @@ paths:
           content:
             application/octet-stream:
               schema:
-                  type: string
-                  format: byte
+                type: string
+                format: byte
         '400':
           $ref: '#/components/responses/400'
         '500':
@@ -2301,7 +2299,7 @@ components:
           type: string
           example: "user logged-in successfully"
 
-    UserSignupResponseWithMenonic:
+    UserSignupResponseWithMnemonic:
       type: object
       properties:
         address:
@@ -2323,12 +2321,12 @@ components:
           type: boolean
           example: true
 
-#    OkResponse:
-#      type: object
-#      properties:
-#        message:
-#          type: string
-#          example: "done"
+    #    OkResponse:
+    #      type: object
+    #      properties:
+    #        message:
+    #          type: string
+    #          example: "done"
 
     UserExportResponse:
       type: object

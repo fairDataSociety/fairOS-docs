@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "generate": "npx redoc-cli bundle dfs.yaml -o ./static/api/index.html --disableGoogleFont --options.expandDefaultServerVariables \"true\"",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",

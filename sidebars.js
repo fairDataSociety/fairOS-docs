@@ -3,15 +3,6 @@ module.exports = {
     'introduction',
     {
       type: 'category',
-      label: 'FairOS',
-      items: [
-        'fairOS/introduction',
-        'fairOS/architecture',
-      ],
-      collapsed: true,
-    },
-    {
-      type: 'category',
       label: 'FairOS-dfs',
       items: [
         'fairOS-dfs/introduction',
@@ -49,14 +40,6 @@ module.exports = {
 	}
       ],
       collapsed: false,
-    },
-    {
-      type: 'category',
-      label: 'FairOS-compute',
-      items: [
-        'fairOS-compute/introduction',
-      ],
-      collapsed: true,
     },
     {
       type: 'category',
