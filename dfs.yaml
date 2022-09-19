@@ -132,7 +132,7 @@ paths:
                 type: string
                 example: fairOS-dfs=MTYxMjUwNDI5NnxSMmFYcUphYU5CWTFsYTlxMkYzaG4xT3N3RkRlQlFUT2UxRVVnelZWcmVBb0dkVWNVUHNUSU95QVZhUjVodXhvR2YyUTJNM1IwRkpncGxXNXhzM0ZycHZPMW9vTlJldW4yRm9kYjBNOENfb3pEaDVEQWp2bl94M3lLOTdPWUZ6bXdpU1FQU01pTm1oUG5MMENZOHVmV1FHYlc4OVpyekE2SzBuWjVKWkFMb2Q5fAwgQztL4Efy82UoSjN5Rv9v77glLGsbqzQUmmyI0cNg; Path=/; Domain=api.fairos.io; Expires=Sat, 06 Feb 2021 05:51:36 GMT; HttpOnly; Secure; SameSite=None
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -275,7 +275,7 @@ paths:
         '200':
           description: 'OK'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -332,7 +332,7 @@ paths:
         '200':
           description: 'OK'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -366,7 +366,7 @@ paths:
         '200':
           description: 'OK'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -400,7 +400,7 @@ paths:
         '200':
           description: 'OK'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -488,7 +488,7 @@ paths:
         '200':
           description: 'OK'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -530,7 +530,7 @@ paths:
                 type: string
                 example: 'fairOS-dfs=MTYxMjUwNDI5NnxSMmFYcUphYU5CWTFsYTlxMkYzaG4xT3N3RkRlQlFUT2UxRVVnelZWcmVBb0dkVWNVUHNUSU95QVZhUjVodXhvR2YyUTJNM1IwRkpncGxXNXhzM0ZycHZPMW9vTlJldW4yRm9kYjBNOENfb3pEaDVEQWp2bl94M3lLOTdPWUZ6bXdpU1FQU01pTm1oUG5MMENZOHVmV1FHYlc4OVpyekE2SzBuWjVKWkFMb2Q5fAwgQztL4Efy82UoSjN5Rv9v77glLGsbqzQUmmyI0cNg; Path=/; Domain=api.fairos.io; Expires=Sat, 06 Feb 2021 05:51:36 GMT; HttpOnly; Secure; SameSite=None'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -572,7 +572,7 @@ paths:
                 type: string
                 example: 'fairOS-dfs=MTYxMjUwNDI5NnxSMmFYcUphYU5CWTFsYTlxMkYzaG4xT3N3RkRlQlFUT2UxRVVnelZWcmVBb0dkVWNVUHNUSU95QVZhUjVodXhvR2YyUTJNM1IwRkpncGxXNXhzM0ZycHZPMW9vTlJldW4yRm9kYjBNOENfb3pEaDVEQWp2bl94M3lLOTdPWUZ6bXdpU1FQU01pTm1oUG5MMENZOHVmV1FHYlc4OVpyekE2SzBuWjVKWkFMb2Q5fAwgQztL4Efy82UoSjN5Rv9v77glLGsbqzQUmmyI0cNg; Path=/; Domain=api.fairos.io; Expires=Sat, 06 Feb 2021 05:51:36 GMT; HttpOnly; Secure; SameSite=None'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -606,7 +606,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -640,7 +640,7 @@ paths:
         '200':
           description: 'Synced'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -717,7 +717,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -850,7 +850,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -887,7 +887,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1081,7 +1081,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1117,7 +1117,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1269,7 +1269,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1343,7 +1343,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1412,7 +1412,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1485,7 +1485,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1528,7 +1528,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1655,7 +1655,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1699,7 +1699,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1780,7 +1780,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1860,7 +1860,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1932,7 +1932,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -1972,7 +1972,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -2009,7 +2009,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -2093,7 +2093,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -2133,7 +2133,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -2173,7 +2173,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
@@ -2212,7 +2212,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: byte
@@ -2252,7 +2252,7 @@ paths:
         '200':
           description: 'Ok'
           content:
-            application/octet-stream:
+            application/json:
               schema:
                 type: string
                 format: binary
