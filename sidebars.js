@@ -3,15 +3,6 @@ module.exports = {
     'introduction',
     {
       type: 'category',
-      label: 'FairOS',
-      items: [
-        'fairOS/introduction',
-        'fairOS/architecture',
-      ],
-      collapsed: true,
-    },
-    {
-      type: 'category',
       label: 'FairOS-dfs',
       items: [
         'fairOS-dfs/introduction',
@@ -19,6 +10,7 @@ module.exports = {
         'fairOS-dfs/manual-installation',
         'fairOS-dfs/docker-installation',
         'fairOS-dfs/postage-batch-id',
+        'fairOS-dfs/portable-account',
         'fairOS-dfs/api-reference',
         'fairOS-dfs/cli-reference',
         'fairOS-dfs/developer-info',
@@ -49,14 +41,6 @@ module.exports = {
 	}
       ],
       collapsed: false,
-    },
-    {
-      type: 'category',
-      label: 'FairOS-compute',
-      items: [
-        'fairOS-compute/introduction',
-      ],
-      collapsed: true,
     },
     {
       type: 'category',

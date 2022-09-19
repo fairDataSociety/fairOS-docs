@@ -36,9 +36,9 @@ Don't forget to find and replace the version number for the whole of the docs fo
 
 **NOTE: when this is done, the docs will have to be rebuilt.**
 
-1. Get the OpenAPI YAML source files from which the documentation is generated. They can be found in the [openapi folder of fairOS-dfs repo](https://github.com/fairDataSociety/fairOS-dfs/tree/master/openapi).
-2. Generate the `index.html` file for the API docs via : `npx redoc-cli bundle dfs.yaml -o ./static/api/index.html --disableGoogleFont --options.expandDefaultServerVariables "true"`
-5. Rebuild and redeploy docs.
+```
+$ npm run generate
+```
 
 
 ## License
