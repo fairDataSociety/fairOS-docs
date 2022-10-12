@@ -1038,6 +1038,8 @@ paths:
                 block_size:
                   type: string
                   example: 10M
+                overwrite:
+                  type: boolean
               required:
                 - pod_name
                 - pod_dir
