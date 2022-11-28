@@ -2844,7 +2844,7 @@ components:
       properties:
         count:
           type: integer
-        table_name:
+        tableName:
           type: string
     common.PodShareRequest:
       type: object
