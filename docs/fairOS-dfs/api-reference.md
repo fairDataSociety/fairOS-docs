@@ -28,7 +28,6 @@ FairOS-dfs exposes its functionality using REST APIs. There are five groups of A
 - ~~curl --request DELETE 'http://localhost:9090/v1/user/delete' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: application/json' --data-raw '{"password": "<password\>"}'~~
 - curl --request DELETE 'http://localhost:9090/v2/user/delete' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: application/json' --data-raw '{"password": "<password\>"}'
 - curl --request GET 'http://localhost:9090/v1/user/stat' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
-- curl --request POST 'http://localhost:9090/v2/user/migrate' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: application/json' --data-raw '{"password": "<password\>"}'
 
 ### Pod Related APIs
 - curl --request POST 'http://localhost:9090/v1/pod/new' -H 'Content-Type: application/json' -d '{"podName":"<podName\>","password":"<password\>"}' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
@@ -52,13 +51,13 @@ FairOS-dfs exposes its functionality using REST APIs. There are five groups of A
 - curl --request GET 'http://localhost:9090/v1/dir/present?podName=<podName\>&dirPath=<dir_with_path\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
 
 #### File APIs
-- curl --request POST -H "fairOS-dfs-Compression: snappy/gzip" --form 'dirPath=<dir_with_path\>' --form 'podName=<podName\>' --form 'block_size=\<in_Mb\>' --form 'files=@\<filename1\>' http://localhost:9090/v1/file/upload --header 'Content-Type: multipart/form-data' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'(compression header optional)
+- curl --request POST -H "fairOS-dfs-Compression: snappy/gzip" --form 'dirPath=<dir_with_path\>' --form 'podName=<podName\>' --form 'blockSize=\<in_Mb\>' --form 'files=@\<filename1\>' http://localhost:9090/v1/file/upload --header 'Content-Type: multipart/form-data' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'(compression header optional)
 - curl --request POST --form 'filePath="<filePath\>"' --form 'podName="<podName\>"'  http://localhost:9090/v1/file/download -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: multipart/form-data'
-- curl --request POST 'http://localhost:9090/v1/file/share' http://localhost:9090/v1/file/share -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: application/json' --data-raw '{"podName": "<podName\>","pod_path_file": "<filePath\>","dest_user": "<destination_user_address\>"}'
+- curl --request POST 'http://localhost:9090/v1/file/share' http://localhost:9090/v1/file/share -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --header 'Content-Type: application/json' --data-raw '{"podName": "<podName\>","pod_path_file": "<filePath\>","destUser": "<destination_user_address\>"}'
 - curl --request GET 'http://localhost:9090/v1/file/stat?filePath=<filePath\>&podName=<podName\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
 - curl --request DELETE http://localhost:9090/v1/file/delete --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>' --data-raw '{"podName": "<podName\>","filePath": "<filePath\>"}'
   curl --request GET 'http://localhost:9090/v1/file/receive?podName=<podName\>&sharingRef=<string\>&dirPath=<filePath\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
-  curl --request GET 'http://localhost:9090/v1/file/receiveinfo?podName=<podName\>&sharingRef=<string\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
+  curl --request GET 'http://localhost:9090/v1/file/receiveinfo?sharingRef=<string\>' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
   
 ### Key Value DB Related APIs
 - curl --request POST http://localhost:9090/v1/kv/new --data-raw '{"podName": "<podName\>","tableName": "<tableName\>","indexType": "string"}' --header 'Content-Type: application/json' -H 'Cookie: fairOS-dfs=<COOKIE_FROM_LOGIN\>'
