@@ -25,7 +25,7 @@ make binary
 ```sh
 git clone https://github.com/fairDataSociety/fairOS-dfs.git
 cd fairOS-dfs
-git checkout v0.9.0-rc1
+git checkout v0.9.0-rc6
 make binary
 ./dist/dfs server --postageBlockId "RECEIVED_BATCH_ID" #(starts FairOS-dfs in server mode)
 ./dist/dfs-cli #(starts the FairOS-dfs client)
