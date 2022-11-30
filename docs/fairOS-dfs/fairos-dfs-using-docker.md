@@ -4,7 +4,7 @@ title: Running with Docker
 draft: true
 ---
 
-Docker containers for Bee are hosted at [Docker Hub](https://hub.docker.com/r/fairdatasociety/fairos-dfs) for your convenience.
+Docker containers for fairOS-dfs are hosted at [Docker Hub](https://hub.docker.com/r/fairdatasociety/fairos-dfs) for your convenience.
 
 ### Quick Start
 
