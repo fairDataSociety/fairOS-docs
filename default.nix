@@ -5,7 +5,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation {
-  name = "bee-docs";
+  name = "fairos-docs";
 
   buildInputs = [
     coreutils diffutils
