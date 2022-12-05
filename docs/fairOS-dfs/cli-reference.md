@@ -8,14 +8,9 @@ title: REPL client
 ##### user related commands
 - user <new\> (user-name) (mnemonic) - create a new user and login as that user
 - user <del\> - deletes a logged in user
-- user <delV1\> - deletes a logged in user
-- user <migrate\> - migrates a logged in user from v1 to v2
 - user <login\> (user-name) - login as a given user
-- user <loginV1\> (user-name) - login as a given user
 - user <logout\> - logout a logged in user
 - user <present\> (user-name) - returns true if the user is present, false otherwise
-- user <presentV1\> (user-name) - returns true if the user is present, false otherwise
-- user <export\> - exports the given user
 - user <stat\> - shows information about a user
 
 ##### pod related commands
