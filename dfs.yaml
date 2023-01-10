@@ -9,7 +9,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v0.0.0
+  version: v0.9.1
 servers:
   - url: /
 paths:
