@@ -10,4 +10,4 @@ We always welcome DApps to try out FairOS and make the world Fair. Join us on [D
 Thanks for checking us out.
 
 
-** Peace, Love, Unity & Respect **  ![alt text](/img/favicon.ico "")
+** Peace, Love, Unity & Respect **  ![](/img/favicon.ico "")
