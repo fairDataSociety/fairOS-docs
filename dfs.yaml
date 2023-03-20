@@ -1,18 +1,170 @@
 openapi: 3.0.1
 info:
   title: FairOS-dfs server
-  description: >-
-    A list of the currently provided Interfaces to interact with FairOS
-    decentralised file system(dfs), implementing user, pod, file system, key
-    value store and document store
+  description: A list of the currently provided Interfaces to interact with FairOS
+    decentralised file system(dfs), implementing user, pod, file system, key value
+    store and document store
   contact: {}
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v0.9.1
+  version: v0.0.0
 servers:
   - url: /
 paths:
+  /public-dir:
+    get:
+      tags:
+        - public
+      summary: List directory content
+      description: PublicPodGetDirHandler is the api handler to list content of a
+        directory from a public pod
+      parameters:
+        - name: sharingRef
+          in: query
+          description: pod sharing reference
+          required: true
+          schema:
+            type: string
+        - name: dirPath
+          in: query
+          description: dir location in the pod
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ListFileResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+  /public-file:
+    get:
+      tags:
+        - public
+      summary: download file from a shared pod
+      description: PodReceiveInfoHandler is the api handler to download file from
+        a shared pod
+      parameters:
+        - name: sharingRef
+          in: query
+          description: pod sharing reference
+          required: true
+          schema:
+            type: string
+        - name: filePath
+          in: query
+          description: file location in the pod
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+  /public-kv:
+    get:
+      tags:
+        - public
+      summary: get key from public pod
+      description: PublicPodKVEntryGetHandler is the api handler to get key from key
+        value store from a public pod
+      parameters:
+        - name: sharingRef
+          in: query
+          description: pod sharing reference
+          required: true
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          description: table name
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: key to look up
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.KVResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+  /public/{ref}/{file}:
+    get:
+      tags:
+        - public
+      summary: download file from a shared pod
+      description: PublicPodFilePathHandler is the api handler to download file from
+        a shared pod
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
   /v1/dir/chmod:
     post:
       tags:
@@ -34,19 +186,19 @@ paths:
               $ref: '#/components/schemas/api.DirModeRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -58,9 +210,8 @@ paths:
       tags:
         - dir
       summary: List directory
-      description: >-
-        DirectoryLsHandler is the api handler for listing the contents of a
-        directory.
+      description: DirectoryLsHandler is the api handler for listing the contents
+        of a directory.
       parameters:
         - name: podName
           in: query
@@ -81,19 +232,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.ListFileResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -120,19 +271,19 @@ paths:
               $ref: '#/components/schemas/api.DirRequest'
         required: true
       responses:
-        '201':
+        201:
           description: Created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -144,9 +295,8 @@ paths:
       tags:
         - dir
       summary: Is directory present
-      description: >-
-        DirectoryPresentHandler is the api handler which says if a directory is
-        present or not
+      description: DirectoryPresentHandler is the api handler which says if a directory
+        is present or not
       parameters:
         - name: podName
           in: query
@@ -167,19 +317,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.DirPresentResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -206,19 +356,19 @@ paths:
               $ref: '#/components/schemas/common.RenameRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -246,19 +396,19 @@ paths:
               $ref: '#/components/schemas/api.DirRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -270,8 +420,7 @@ paths:
       tags:
         - dir
       summary: Directory stat
-      description: >-
-        DirectoryStatHandler is the api handler which gives the information
+      description: DirectoryStatHandler is the api handler which gives the information
         about a directory
       parameters:
         - name: podName
@@ -293,19 +442,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/dir.Stats'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -316,9 +465,8 @@ paths:
       tags:
         - doc
       summary: Count number of document in a table
-      description: >-
-        DocCountHandler is the api handler to count the number of documents in a
-        given document database
+      description: DocCountHandler is the api handler to count the number of documents
+        in a given document database
       parameters:
         - name: Cookie
           in: header
@@ -334,19 +482,19 @@ paths:
               $ref: '#/components/schemas/api.DocCountRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/collection.TableKeyCount'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -358,8 +506,7 @@ paths:
       tags:
         - doc
       summary: Delete a doc table
-      description: >-
-        DocDeleteHandler is the api handler to delete the given document
+      description: DocDeleteHandler is the api handler to delete the given document
         database
       parameters:
         - name: Cookie
@@ -376,19 +523,19 @@ paths:
               $ref: '#/components/schemas/api.SimpleDocRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -400,9 +547,8 @@ paths:
       tags:
         - doc
       summary: Delete a document from a document datastore
-      description: >-
-        DocEntryDelHandler is the api handler to delete a document from a
-        document datastore
+      description: DocEntryDelHandler is the api handler to delete a document from
+        a document datastore
       parameters:
         - name: id
           in: query
@@ -423,19 +569,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -446,9 +592,8 @@ paths:
       tags:
         - doc
       summary: Get a document from a document datastore
-      description: >-
-        DocEntryGetHandler is the api handler to get a document from a document
-        datastore
+      description: DocEntryGetHandler is the api handler to get a document from a
+        document datastore
       parameters:
         - name: podName
           in: query
@@ -475,19 +620,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: base64 encoded string
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.DocGet'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -498,8 +643,7 @@ paths:
       tags:
         - doc
       summary: Add a record in document datastore
-      description: >-
-        DocEntryPutHandler is the api handler add a document in to a document
+      description: DocEntryPutHandler is the api handler add a document in to a document
         datastore
       parameters:
         - name: doc
@@ -521,19 +665,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -544,8 +688,7 @@ paths:
       tags:
         - doc
       summary: Get rows from a given doc datastore
-      description: >-
-        DocFindHandler is the api handler to select rows from a given document
+      description: DocFindHandler is the api handler to select rows from a given document
         datastore
       parameters:
         - name: podName
@@ -562,11 +705,10 @@ paths:
             type: string
         - name: expr
           in: query
-          description: >-
-            expression to search for. allowed operators in expr are =, >, =>,
-            <=, <. eg: 'first_name=>John', 'first_name=>J.', 'first_name=>.',
-            'age=>30', 'age<=30'. if index is string, expr supports regex. we do
-            not have support for multiple conditions in expr yet
+          description: 'expression to search for. allowed operators in expr are =, >,
+          =>, <=, <. eg: ''first_name=>John'', ''first_name=>J.'', ''first_name=>.'',
+          ''age=>30'', ''age<=30''. if index is string, expr supports regex. we do
+          not have support for multiple conditions in expr yet'
           required: true
           schema:
             type: string
@@ -582,19 +724,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: array of base64 encoded string
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.DocFind'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -604,12 +746,10 @@ paths:
     post:
       tags:
         - doc
-      summary: >-
-        Index a json file that is present in a pod, in to the given document
+      summary: Index a json file that is present in a pod, in to the given document
         database
-      description: >-
-        DocIndexJsonHandler is the api handler to index a json file that is
-        present in a pod, in to the given document database
+      description: DocIndexJsonHandler is the api handler to index a json file that
+        is present in a pod, in to the given document database
       parameters:
         - name: Cookie
           in: header
@@ -625,19 +765,19 @@ paths:
               $ref: '#/components/schemas/api.DocIndexRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -649,9 +789,8 @@ paths:
       tags:
         - doc
       summary: Load json file from local file system
-      description: >-
-        DocLoadJsonHandler is the api handler that indexes a json file that is
-        present in the local file system
+      description: DocLoadJsonHandler is the api handler that indexes a json file
+        that is present in the local file system
       parameters:
         - name: podName
           in: query
@@ -684,19 +823,19 @@ paths:
                   format: binary
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -707,9 +846,8 @@ paths:
       tags:
         - doc
       summary: List all doc table
-      description: >-
-        DocListHandler is the api handler which lists all the document database
-        in a pod
+      description: DocListHandler is the api handler which lists all the document
+        database in a pod
       parameters:
         - name: podName
           in: query
@@ -724,19 +862,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.DocumentDBs'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -756,30 +894,29 @@ paths:
           schema:
             type: string
       requestBody:
-        description: >-
-          doc table info. si or simple index is a comma separated list of keys
-          and their types. eg: 'first_name=string,age=number'. valid index types
-          can be 'string', 'number', 'map', 'list'. default index is 'id' and it
-          should be of type string
+        description: 'doc table info. si or simple index is a comma separated list
+          of keys and their types. eg: ''first_name=string,age=number''. valid index
+          types can be ''string'', ''number'', ''map'', ''list''. default index is
+          ''id'' and it should be of type string'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/api.DocRequest'
         required: true
       responses:
-        '201':
+        201:
           description: Created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -807,19 +944,19 @@ paths:
               $ref: '#/components/schemas/api.DocRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.DocumentDBs'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -847,19 +984,19 @@ paths:
               $ref: '#/components/schemas/api.FileModeRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -871,7 +1008,8 @@ paths:
       tags:
         - file
       summary: Delete a file
-      description: FileReceiveHandler is the api handler to delete a file from a given pod
+      description: FileReceiveHandler is the api handler to delete a file from a given
+        pod
       parameters:
         - name: Cookie
           in: header
@@ -887,25 +1025,25 @@ paths:
               $ref: '#/components/schemas/api.FileDeleteRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '404':
+        404:
           description: Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -917,9 +1055,8 @@ paths:
       tags:
         - file
       summary: Download a file
-      description: >-
-        FileDownloadHandlerGet is the api handler to download a file from a
-        given pod
+      description: FileDownloadHandlerGet is the api handler to download a file from
+        a given pod
       parameters:
         - name: podName
           in: query
@@ -940,7 +1077,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             '*/*':
@@ -948,13 +1085,13 @@ paths:
                 type: array
                 items:
                   type: integer
-        '400':
+        400:
           description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             '*/*':
@@ -964,9 +1101,8 @@ paths:
       tags:
         - file
       summary: Download a file
-      description: >-
-        FileDownloadHandlerPost is the api handler to download a file from a
-        given pod
+      description: FileDownloadHandlerPost is the api handler to download a file from
+        a given pod
       parameters:
         - name: Cookie
           in: header
@@ -990,7 +1126,7 @@ paths:
                   description: file path
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             '*/*':
@@ -998,13 +1134,13 @@ paths:
                 type: array
                 items:
                   type: integer
-        '400':
+        400:
           description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             '*/*':
@@ -1015,7 +1151,8 @@ paths:
       tags:
         - file
       summary: Receive a file
-      description: FileReceiveHandler is the api handler to receive a file in a given pod
+      description: FileReceiveHandler is the api handler to receive a file in a given
+        pod
       parameters:
         - name: podName
           in: query
@@ -1042,19 +1179,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.FileSharingReference'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1080,19 +1217,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/user.ReceiveFileInfo'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1103,7 +1240,8 @@ paths:
       tags:
         - file
       summary: Info of a file
-      description: FileRenameHandler is the api handler to get the information of a file
+      description: FileRenameHandler is the api handler to get the information of
+        a file
       parameters:
         - name: Cookie
           in: header
@@ -1119,25 +1257,25 @@ paths:
               $ref: '#/components/schemas/common.RenameRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '404':
+        404:
           description: Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1149,7 +1287,8 @@ paths:
       tags:
         - file
       summary: Share a file
-      description: FileShareHandler is the api handler to share a file from a given pod
+      description: FileShareHandler is the api handler to share a file from a given
+        pod
       parameters:
         - name: Cookie
           in: header
@@ -1165,19 +1304,19 @@ paths:
               $ref: '#/components/schemas/api.FileShareRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.FileSharingReference'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1189,7 +1328,8 @@ paths:
       tags:
         - file
       summary: Info of a file
-      description: FileStatHandler is the api handler to get the information of a file
+      description: FileStatHandler is the api handler to get the information of a
+        file
       parameters:
         - name: podName
           in: query
@@ -1210,19 +1350,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/file.Stats'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1233,9 +1373,8 @@ paths:
       tags:
         - file
       summary: Sync status of a file
-      description: >-
-        FileStatusHandler is the api handler to check sync status of a file from
-        a given pod
+      description: FileStatusHandler is the api handler to check sync status of a
+        file from a given pod
       parameters:
         - name: podName
           in: query
@@ -1256,7 +1395,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             '*/*':
@@ -1264,13 +1403,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/api.StatusResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             '*/*':
@@ -1281,8 +1420,7 @@ paths:
       tags:
         - file
       summary: Update a file
-      description: >-
-        FileUpdateHandler is the api handler to update a file from a given
+      description: FileUpdateHandler is the api handler to update a file from a given
         offset
       parameters:
         - name: Cookie
@@ -1316,19 +1454,19 @@ paths:
                   description: file offset
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1339,9 +1477,8 @@ paths:
       tags:
         - file
       summary: Upload a file
-      description: >-
-        FileUploadHandler is the api handler to upload a file from a local file
-        system to the dfs
+      description: FileUploadHandler is the api handler to upload a file from a local
+        file system to the dfs
       parameters:
         - name: fairOS-dfs-Compression
           in: header
@@ -1382,19 +1519,19 @@ paths:
                   description: overwrite the file if already exists
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1405,9 +1542,8 @@ paths:
       tags:
         - kv
       summary: Count rows in a key value table
-      description: >-
-        KVCountHandler is the api handler to count the number of rows in a key
-        value table
+      description: KVCountHandler is the api handler to count the number of rows in
+        a key value table
       parameters:
         - name: Cookie
           in: header
@@ -1423,19 +1559,19 @@ paths:
               $ref: '#/components/schemas/api.KVTableRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/collection.TableKeyCount'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1463,19 +1599,19 @@ paths:
               $ref: '#/components/schemas/api.KVTableRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1487,9 +1623,8 @@ paths:
       tags:
         - kv
       summary: Delete key-value from the kv table
-      description: >-
-        KVDelHandler is the api handler to delete a key and value from the kv
-        table
+      description: KVDelHandler is the api handler to delete a key and value from
+        the kv table
       parameters:
         - name: Cookie
           in: header
@@ -1505,19 +1640,19 @@ paths:
               $ref: '#/components/schemas/api.KVEntryDeleteRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.KVResponseRaw'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1556,19 +1691,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.KVResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1579,7 +1714,8 @@ paths:
       tags:
         - kv
       summary: get value from the kv table
-      description: KVGetDataHandler is the api handler to get raw value from the kv table
+      description: KVGetDataHandler is the api handler to get raw value from the kv
+        table
       parameters:
         - name: podName
           in: query
@@ -1611,19 +1747,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.KVResponseRaw'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1634,9 +1770,8 @@ paths:
       tags:
         - kv
       summary: Check if a value exists in the kv table
-      description: >-
-        KVPresentHandler is the api handler to check if a value exists in the kv
-        table
+      description: KVPresentHandler is the api handler to check if a value exists
+        in the kv table
       parameters:
         - name: podName
           in: query
@@ -1663,19 +1798,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1702,19 +1837,19 @@ paths:
               $ref: '#/components/schemas/api.KVEntryRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1726,9 +1861,8 @@ paths:
       tags:
         - kv
       summary: Export from a particular key with the given prefix
-      description: >-
-        KVExportHandler is the api handler to export from a particular key with
-        the given prefix
+      description: KVExportHandler is the api handler to export from a particular
+        key with the given prefix
       parameters:
         - name: Cookie
           in: header
@@ -1744,7 +1878,7 @@ paths:
               $ref: '#/components/schemas/api.KVExportRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
@@ -1753,13 +1887,13 @@ paths:
                 items:
                   type: object
                   properties: {}
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1771,9 +1905,8 @@ paths:
       tags:
         - kv
       summary: Upload a csv file in kv table
-      description: >-
-        KVLoadCSVHandler is the api handler to load a csv file as key and value
-        in a KV table
+      description: KVLoadCSVHandler is the api handler to load a csv file as key and
+        value in a KV table
       parameters:
         - name: Cookie
           in: header
@@ -1805,19 +1938,19 @@ paths:
                   format: binary
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1828,9 +1961,8 @@ paths:
       tags:
         - kv
       summary: List all key value tables
-      description: >-
-        KVListHandler is the api handler to list all the key value tables in a
-        pod
+      description: KVListHandler is the api handler to list all the key value tables
+        in a pod
       parameters:
         - name: podName
           in: query
@@ -1845,19 +1977,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.Collections'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1884,19 +2016,19 @@ paths:
               $ref: '#/components/schemas/api.KVTableRequest'
         required: true
       responses:
-        '201':
+        201:
           description: Created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1924,19 +2056,19 @@ paths:
               $ref: '#/components/schemas/api.KVTableRequest'
         required: true
       responses:
-        '201':
+        201:
           description: Created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1948,9 +2080,8 @@ paths:
       tags:
         - kv
       summary: Seek in kv table
-      description: >-
-        KVSeekHandler is the api handler to seek to a particular key with the
-        given prefix
+      description: KVSeekHandler is the api handler to seek to a particular key with
+        the given prefix
       parameters:
         - name: Cookie
           in: header
@@ -1966,19 +2097,19 @@ paths:
               $ref: '#/components/schemas/api.KVExportRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -1990,9 +2121,8 @@ paths:
       tags:
         - kv
       summary: Get next value from last seek in kv table
-      description: >-
-        KVGetNextHandler is the api handler to get the key and value from the
-        current seek position
+      description: KVGetNextHandler is the api handler to get the key and value from
+        the current seek position
       parameters:
         - name: podName
           in: query
@@ -2013,25 +2143,25 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.KVResponse'
-        '204':
+        204:
           description: No Content
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2058,19 +2188,19 @@ paths:
               $ref: '#/components/schemas/api.PodNameRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2098,19 +2228,100 @@ paths:
               $ref: '#/components/schemas/api.PodNameRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+      x-codegen-request-body-name: pod_request
+  /v1/pod/fork:
+    post:
+      tags:
+        - pod
+      summary: Fork a pod
+      description: PodForkHandler is the api handler to fork a pod
+      parameters:
+        - name: Cookie
+          in: header
+          description: cookie parameter
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: pod name and user password
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.PodForkRequest'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+      x-codegen-request-body-name: pod_request
+  /v1/pod/fork-from-reference:
+    post:
+      tags:
+        - pod
+      summary: Fork a pod from sharing reference
+      description: PodForkFromReferenceHandler is the api handler to fork a pod from
+        a given sharing reference
+      parameters:
+        - name: Cookie
+          in: header
+          description: cookie parameter
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: pod name and user password
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api.PodForkFromReferenceRequest'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.response'
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2131,19 +2342,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.PodListResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2170,19 +2381,19 @@ paths:
               $ref: '#/components/schemas/api.PodNameRequest'
         required: true
       responses:
-        '201':
+        201:
           description: Created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2210,19 +2421,19 @@ paths:
               $ref: '#/components/schemas/api.PodNameRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2250,19 +2461,19 @@ paths:
               $ref: '#/components/schemas/api.PodNameRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2289,19 +2500,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2312,9 +2523,8 @@ paths:
       tags:
         - pod
       summary: Receive shared pod
-      description: >-
-        PodReceiveHandler is the api handler to receive shared pod from shared
-        reference
+      description: PodReceiveHandler is the api handler to receive shared pod from
+        shared reference
       parameters:
         - name: sharingRef
           in: query
@@ -2334,19 +2544,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2357,9 +2567,8 @@ paths:
       tags:
         - pod
       summary: Receive shared pod info
-      description: >-
-        PodReceiveInfoHandler is the api handler to receive shared pod info from
-        shared reference
+      description: PodReceiveInfoHandler is the api handler to receive shared pod
+        info from shared reference
       parameters:
         - name: sharingRef
           in: query
@@ -2374,19 +2583,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/pod.ShareInfo'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2413,19 +2622,19 @@ paths:
               $ref: '#/components/schemas/common.PodShareRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.PodSharingReference'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2452,19 +2661,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.PodStatResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2491,19 +2700,19 @@ paths:
               $ref: '#/components/schemas/api.PodNameRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2531,19 +2740,19 @@ paths:
               $ref: '#/components/schemas/api.PodNameRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2569,18 +2778,18 @@ paths:
       parameters:
         - name: userName
           in: query
-          description: user name
+          description: username
           required: true
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.LoginStatus'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
@@ -2605,19 +2814,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             '*/*':
@@ -2647,19 +2856,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/user.Stat'
-        '400':
+        400:
           description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             '*/*':
@@ -2686,19 +2895,19 @@ paths:
               $ref: '#/components/schemas/api.UserDeleteRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2712,14 +2921,14 @@ paths:
       summary: Login User
       description: login user with the new ENS based authentication
       requestBody:
-        description: user name
+        description: username
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/common.UserLoginRequest'
         required: true
       responses:
-        '200':
+        200:
           description: OK
           headers:
             Set-Cookie:
@@ -2730,19 +2939,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.UserLoginResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '404':
+        404:
           description: Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -2758,18 +2967,18 @@ paths:
       parameters:
         - name: userName
           in: query
-          description: user name
+          description: username
           required: true
           schema:
             type: string
       responses:
-        '200':
+        200:
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.PresentResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
@@ -2782,32 +2991,32 @@ paths:
       summary: Register New User
       description: registers new user with the new ENS based authentication
       requestBody:
-        description: user name
+        description: username
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/common.UserSignupRequest'
         required: true
       responses:
-        '201':
+        201:
           description: Created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.UserSignupResponse'
-        '400':
+        400:
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.response'
-        '402':
+        402:
           description: Payment Required
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/api.UserSignupResponse'
-        '500':
+        500:
           description: Internal Server Error
           content:
             application/json:
@@ -3017,6 +3226,20 @@ components:
       properties:
         loggedin:
           type: boolean
+    api.PodForkFromReferenceRequest:
+      type: object
+      properties:
+        forkName:
+          type: string
+        podSharingReference:
+          type: string
+    api.PodForkRequest:
+      type: object
+      properties:
+        forkName:
+          type: string
+        podName:
+          type: string
     api.PodListResponse:
       type: object
       properties:
@@ -3197,15 +3420,6 @@ components:
           type: string
         podName:
           type: string
-    file.Blocks:
-      type: object
-      properties:
-        compressedSize:
-          type: string
-        reference:
-          type: string
-        size:
-          type: string
     file.Entry:
       type: object
       properties:
@@ -3225,8 +3439,6 @@ components:
           type: string
         size:
           type: string
-        tag:
-          type: integer
     file.Stats:
       type: object
       properties:
@@ -3234,10 +3446,6 @@ components:
           type: string
         blockSize:
           type: string
-        blocks:
-          type: array
-          items:
-            $ref: '#/components/schemas/file.Blocks'
         compression:
           type: string
         contentType:
@@ -3256,8 +3464,6 @@ components:
           type: string
         podName:
           type: string
-        tag:
-          type: integer
     pod.ShareInfo:
       type: object
       properties:
