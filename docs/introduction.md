@@ -8,10 +8,14 @@ slug: /
 This documentation is for the goland implementation of FairOS-dfs. JS implementation is available at [fdp-storage](https://github.com/fairDataSociety/fdp-storage).
 :::
 
-:::info
-FairOS-dfs version v0.9.0 has breaking changes and is not compatible with the last stable version v0.7.3.
-This release works with bee v1.9.0 or above.
-:::
+[//]: # ()
+[//]: # (:::info)
+
+[//]: # (FairOS-dfs version v0.9.0 has breaking changes and is not compatible with the last stable version v0.7.3.)
+
+[//]: # (This release works with bee v1.9.0 or above.)
+
+[//]: # (:::)
 
 Hello and welcome to [FairOS](/docs/fairOS/introduction), the missing Operating System (OS) for a Fair Data Society. FairOS is a project being done under the banner of [Fair Data Society](https://fairdatasociety.org/) (FDS).
 

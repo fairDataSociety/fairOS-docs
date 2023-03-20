@@ -25,7 +25,7 @@ docker run\
 In order to use specific versions of fairOS-dfs, pull with required version
 
 ```bash
-docker pull fairdatasociety/fairos-dfs:v0.9.2-rc2
+docker pull fairdatasociety/fairos-dfs:v0.9.3-rc1
 ```
 
 #### Using Tags
