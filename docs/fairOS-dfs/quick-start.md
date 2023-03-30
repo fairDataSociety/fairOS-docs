@@ -23,30 +23,38 @@ The following example commands download and run the binary versions of FairOS-df
 ### Linux
 
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.9.3-rc1/dfs-linux-amd64
-chmod +x dfs-linux-amd64
-./dfs-linux-amd64 server --postageBlockId "RECEIVED_BATCH_ID"
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.9.3/dfs_linux_amd64
+chmod +x dfs_linux_amd64
+./dfs_linux_amd64 server --postageBlockId "RECEIVED_BATCH_ID"
 ```
 
 In another terminal, run the dfs-cli to connect and test it
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.9.3-rc1/dfs-cli-linux-amd64
-chmod +x dfs-cli-linux-amd64
-./dist/dfs-cli-linux-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.9.3/dfs_cli_linux_amd64
+chmod +x dfs_cli_linux_amd64
+./dfs_cli_linux_amd64
 ```
 
 
 ### MacOS
 
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.9.3-rc1/dfs-darwin-amd64
-chmod +x dfs-darwin-amd64
-./dist/dfs-darwin-amd64 server --postageBlockId "RECEIVED_BATCH_ID"
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.9.3/dfs_darwin_amd64
+chmod +x dfs_darwin_amd64
+./dfs_darwin_amd64 server --postageBlockId "RECEIVED_BATCH_ID"
 ```
 
 In another terminal, run the dfs-cli to connect and test it
 ```sh
-wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.9.3-rc1/dfs-cli-darwin-amd64
-chmod +x dfs-cli-darwin-amd64
-./dist/dfs-cli-darwin-amd64
+wget https://github.com/fairDataSociety/fairOS-dfs/releases/download/v0.9.3/dfs_cli_darwin_amd64
+chmod +x dfs_cli_darwin_amd64
+./dfs_cli_darwin_amd64
 ```
+
+:::info
+FairOS-dfs is still in goerli testnet. While running the server use `--network` as testnet and `--rpc` endpoint should point to a goerli node, irrespective of the network you are using for Swarm.
+:::
+
+:::info
+Use https://create.fairdatasociety.org/#/register to register your account, then use the server and cli
+:::
