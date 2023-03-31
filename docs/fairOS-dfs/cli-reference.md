@@ -23,7 +23,7 @@ title: REPL client
 - pod <ls\> - lists all the pods created for this account
 
 ##### directory & file related commands
-- cd <directory name/>
+- cd <directory name\>
 - ls 
 - download <destination dir in local fs\> <relative path of source file in pod\>
 - upload <source file in local fs\> <destination directory in pod\> <block size (ex: 1Mb, 64Mb)\>, <compression (snappy/gzip)\>
