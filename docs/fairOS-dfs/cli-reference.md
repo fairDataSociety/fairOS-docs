@@ -23,18 +23,18 @@ title: REPL client
 - pod <ls\> - lists all the pods created for this account
 
 ##### directory & file related commands
-- cd <directory name\>
+- cd <directory name>
 - ls 
-- download <source file in pod, destination directory in local fs\>
-- upload <source file in local fs, destination directory in pod, block size in MB\>
-- mkdir <directory name\>
-- rmdir <directory name\>
-- rm <file name\>
+- download <destination dir in local fs> <relative path of source file in pod>
+- upload <source file in local fs> <destination directory in pod> <block size (ex: 1Mb, 64Mb)>, <compression (snappy/gzip)>
+- mkdir <directory name>
+- rmdir <directory name>
+- rm <file name>
 - pwd - show present working directory
-- stat <file name or directory name\> - shows the information about a file or directory
-- share <file name\> -  shares a file with another user
-- receive <sharing reference\> \<pod dir\> - receives a file from another user
-- receiveinfo <sharing reference\> - shows the received file info before accepting the receive 
+- stat <file name or directory name> - shows the information about a file or directory
+- share <file name> -  shares a file with another user
+- receive <sharing reference> <pod dir> - receives a file from another user
+- receiveinfo <sharing reference> - shows the received file info before accepting it 
 
 ##### Key Value store commands
 - kv <new\> (table-name) - create new key value store
