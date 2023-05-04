@@ -12,6 +12,7 @@ module.exports = {
         'fairOS-dfs/fairos-dfs-using-docker',
         'fairOS-dfs/postage-batch-id',
         'fairOS-dfs/portable-account',
+        'fairOS-dfs/public-pods',
         'fairOS-dfs/api-reference',
         'fairOS-dfs/cli-reference',
         'fairOS-dfs/developer-info',
