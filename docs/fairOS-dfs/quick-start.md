@@ -52,7 +52,11 @@ chmod +x dfs_cli_darwin_amd64
 ```
 
 :::info
-FairOS-dfs is still in goerli testnet. While running the server use `--network` as testnet and `--rpc` endpoint should point to a goerli node, irrespective of the network you are using for Swarm.
+FairOS-dfs is still in testnet. While running the server use `--network` as testnet and `--rpc` endpoint should point to a sepolia node, irrespective of the network you are using for Swarm.
+:::
+
+:::info
+FairOS-dfs is not using goerli testnet anymore. It has switched to sepolia. If you want to keep using your old account please use the old mnemonic to re-register. You will be able to access your data.
 :::
 
 :::info
