@@ -52,7 +52,7 @@ chmod +x dfs_cli_darwin_amd64
 ```
 
 :::info
-FairOS-dfs is still in testnet. While running the server use `--network` as testnet and `--rpc` endpoint should point to a sepolia node, irrespective of the network you are using for Swarm.
+FairOS-dfs is still in testnet. While running the server use `--ens-network` as testnet and `--rpc` endpoint should point to a sepolia node, irrespective of the network you are using for Swarm.
 :::
 
 :::info

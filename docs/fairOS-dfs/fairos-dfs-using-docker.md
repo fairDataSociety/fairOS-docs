@@ -14,7 +14,7 @@ docker run\
   -p 9090:9090 \
   --rm -it fairdatasociety/fairos-dfs\
   server \
-    --network="testnet" \
+    --ens-network="testnet" \
     --rpc="https://xdai.dev.fairdatasociety.org" \
     --beeApi="https://bee-1.fairdatasociety.org" \
     --postageBlockId=0000000000000000000000000000000000000000000000000000000000000000
