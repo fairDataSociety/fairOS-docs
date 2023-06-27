@@ -81,7 +81,7 @@ module.exports = {
     announcementBar: {
       id: 'fairos_announcements',
       content:
-        '⭐️ FairOS-dfs version v0.9.3 has been released with exciting new features ⭐️',
+        '⭐️ FairOS-dfs version v0.9.5 has been released with exciting new features ⭐️',
       backgroundColor: '#00994d', // Defaults to `#fff`.
       textColor: '#ffffff', // Defaults to `#000`.
     },

@@ -8,7 +8,12 @@ FairOS-dfs API documentation is given here
 
 
 :::info
-User Signup, User Login, Pod Open APIs will return a cookie named 'fairOS-dfs'. This needs to be stored in browsers memory and should be sent in every API request thereafter. 
+User Signup, User Login APIs will return a cookie named 'fairOS-dfs'. This needs to be stored in browsers memory and should be sent in every API request thereafter. 
+:::
+
+:::info
+From v0.9.5 fairOS-dfs supports token based authentication. 
+A success on User Login api will return an `accessToken` in the response. This `accessToken` can be send with `Authorisation` header of the api requests thereafter as `Bearer <accessToken>`.
 :::
 
 FairOS-dfs exposes its functionality using REST APIs. There are five groups of APIs
