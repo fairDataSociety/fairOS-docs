@@ -38,6 +38,7 @@ module.exports = {
             'fairOS-dfs/video/public-pod',
             'fairOS-dfs/video/clients-and-ws',
             'fairOS-dfs/video/wasm',
+            'fairOS-dfs/act',
            ]
 	}
       ],
